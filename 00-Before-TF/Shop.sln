@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopData", "ShopData\ShopData.csproj", "{919940AE-F3C9-4B0F-90D6-A0C9CA169FC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopDomain", "ShopDomain\ShopDomain.csproj", "{3451D138-EF8A-432A-9989-5FC80F9E4A34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopAPI", "ShopAPI\ShopAPI.csproj", "{05479D2C-F2A3-47C9-A34D-5AD2D61F9439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{919940AE-F3C9-4B0F-90D6-A0C9CA169FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919940AE-F3C9-4B0F-90D6-A0C9CA169FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919940AE-F3C9-4B0F-90D6-A0C9CA169FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919940AE-F3C9-4B0F-90D6-A0C9CA169FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3451D138-EF8A-432A-9989-5FC80F9E4A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3451D138-EF8A-432A-9989-5FC80F9E4A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3451D138-EF8A-432A-9989-5FC80F9E4A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3451D138-EF8A-432A-9989-5FC80F9E4A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05479D2C-F2A3-47C9-A34D-5AD2D61F9439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05479D2C-F2A3-47C9-A34D-5AD2D61F9439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05479D2C-F2A3-47C9-A34D-5AD2D61F9439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05479D2C-F2A3-47C9-A34D-5AD2D61F9439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
