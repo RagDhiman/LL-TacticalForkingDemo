@@ -4,7 +4,7 @@ namespace ShopDomain
     {
         public int OrderId { get; set; }
 
-        public string AccountId { get; set; }
+        public int AccountId { get; set; }
 
         public int ProductId { get; set; }
 
