@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj": {}
+    "C:\\Users\\Rag\\Source\\Repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj": {
+    "C:\\Users\\Rag\\Source\\Repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Rag\\Source\\Repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj",
         "projectName": "ShopAPI",
-        "projectPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj",
+        "projectPath": "C:\\Users\\Rag\\Source\\Repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\ShopAPI.csproj",
         "packagesPath": "C:\\Users\\Rag\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopAPI\\obj\\",
         "projectStyle": "PackageReference",
