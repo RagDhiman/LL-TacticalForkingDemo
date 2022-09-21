@@ -108,14 +108,14 @@ namespace ShopData
             modelBuilder.Entity<OrderHistory>().HasData(myOrderHistories);
 
             var mySuppliers = new List<Supplier>() {
-                new Supplier() { SupplierId=1,  SupplierName="Bell",  AddressLine1 = "304 Coventory Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Supplier() { SupplierId=2,  SupplierName="Sapple",  AddressLine1 = "504 Wolverhampton Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Supplier() { SupplierId=3,  SupplierName="Hamsung",  AddressLine1 = "873 Beachway Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Supplier() { SupplierId=4,  SupplierName="Rony",  AddressLine1 = "490 Lowson Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Supplier() { SupplierId=5,  SupplierName="Vega",  AddressLine1 = "222 Rawlings Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Supplier() { SupplierId=6,  SupplierName="Jeto",  AddressLine1 = "321 Gillot Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Supplier() { SupplierId=7,  SupplierName="Ketol",  AddressLine1 = "403 Hagley Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Supplier() { SupplierId=8,  SupplierName="Airr",  AddressLine1 = "302 Broad Street", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"}
+                new Supplier() { SupplierId=1,  SupplierName="Bell",  AddressLine1 = "304 Coventory Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=2,  SupplierName="Sapple",  AddressLine1 = "504 Wolverhampton Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=3,  SupplierName="Hamsung",  AddressLine1 = "873 Beachway Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=4,  SupplierName="Rony",  AddressLine1 = "490 Lowson Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=5,  SupplierName="Vega",  AddressLine1 = "222 Rawlings Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=6,  SupplierName="Jeto",  AddressLine1 = "321 Gillot Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=7,  SupplierName="Ketol",  AddressLine1 = "403 Hagley Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { SupplierId=8,  SupplierName="Airr",  AddressLine1 = "302 Broad Street", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"}
             };
 
             modelBuilder.Entity<Supplier>().HasData(mySuppliers);

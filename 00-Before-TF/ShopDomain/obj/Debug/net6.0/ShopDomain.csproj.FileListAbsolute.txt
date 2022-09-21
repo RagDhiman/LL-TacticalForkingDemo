@@ -1,0 +1,12 @@
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\bin\Debug\net6.0\ShopDomain.deps.json
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\bin\Debug\net6.0\ShopDomain.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\bin\Debug\net6.0\ShopDomain.pdb
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.csproj.AssemblyReference.cache
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.AssemblyInfoInputs.cache
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.AssemblyInfo.cs
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.csproj.CoreCompileInputs.cache
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\refint\ShopDomain.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ShopDomain.pdb
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopDomain\obj\Debug\net6.0\ref\ShopDomain.dll
