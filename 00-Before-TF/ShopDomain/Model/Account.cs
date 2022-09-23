@@ -1,8 +1,10 @@
-namespace ShopDomain
+using ShopDomain.DataAccess;
+
+namespace ShopDomain.Model
 {
-    public class Account
+    public class Account: IEntity
     {
-        public int AccountId { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

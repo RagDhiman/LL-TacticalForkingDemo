@@ -1,9 +1,10 @@
-namespace ShopDomain
-{
-    public class Order
-    {
-        public int OrderId { get; set; }
+using ShopDomain.DataAccess;
 
+namespace ShopDomain.Model
+{
+    public class Order: IEntity
+    {
+        public int Id { get; set; }
         public int AccountId { get; set; }
 
         public int ProductId { get; set; }

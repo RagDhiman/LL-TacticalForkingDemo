@@ -1,4 +1,4 @@
-namespace ShopDomain
+namespace ShopDomain.Model
 {
     public class OrderHistory
     {

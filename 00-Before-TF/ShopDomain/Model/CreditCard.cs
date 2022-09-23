@@ -1,8 +1,10 @@
-namespace ShopDomain
+using ShopDomain.DataAccess;
+
+namespace ShopDomain.Model
 {
-    public class CreditCard
+    public class CreditCard: IEntity
     {
-        public int CreditCardId { get; set; }
+        public int Id { get; set; }
         public int AccountId { get; set; }
         public string CreditCardName { get; set; }
         public int CreditCardNumber { get; set; }

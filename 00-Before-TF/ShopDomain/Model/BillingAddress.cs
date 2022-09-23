@@ -1,8 +1,10 @@
-namespace ShopDomain
+using ShopDomain.DataAccess;
+
+namespace ShopDomain.Model
 {
-    public class BillingAddress
+    public class BillingAddress: IEntity
     {
-        public int BillingAddressId { get; set; }
+        public int Id { get; set; }
         public int CreditCardId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

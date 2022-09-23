@@ -1,15 +1,17 @@
-namespace ShopDomain
+using ShopDomain.DataAccess;
+
+namespace ShopDomain.Model
 {
-    public class Delivery
+    public class Address: IEntity
     {
-        public int OrderId { get; set; }
-        public int DeliveryId { get; set; }
-        public DateTime DeliveryDateTime { get; set; }
+        public int Id { get; set; }
+        public int AccountId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }
         public string CityTown { get; set; }
         public string PostCode { get; set; }
-        public Order Order { get; set; }
+        public Account Account { get; set; }
+
     }
 }

@@ -13,7 +13,7 @@ namespace ShopData.Migrations
                 name: "Account",
                 columns: table => new
                 {
-                    AccountId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -21,14 +21,14 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Account", x => x.AccountId);
+                    table.PrimaryKey("PK_Account", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "InventoryCheck",
                 columns: table => new
                 {
-                    InventoryCheckId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StockId = table.Column<int>(type: "int", nullable: false),
                     CheckDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -36,7 +36,7 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InventoryCheck", x => x.InventoryCheckId);
+                    table.PrimaryKey("PK_InventoryCheck", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,7 +76,7 @@ namespace ShopData.Migrations
                 name: "Address",
                 columns: table => new
                 {
-                    AddressId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -87,12 +87,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Address", x => x.AddressId);
+                    table.PrimaryKey("PK_Address", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Address_Account_AccountId",
                         column: x => x.AccountId,
                         principalTable: "Account",
-                        principalColumn: "AccountId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -100,7 +100,7 @@ namespace ShopData.Migrations
                 name: "CreditCard",
                 columns: table => new
                 {
-                    CreditCardId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     CreditCardName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -109,12 +109,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CreditCard", x => x.CreditCardId);
+                    table.PrimaryKey("PK_CreditCard", x => x.Id);
                     table.ForeignKey(
                         name: "FK_CreditCard_Account_AccountId",
                         column: x => x.AccountId,
                         principalTable: "Account",
-                        principalColumn: "AccountId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -145,7 +145,7 @@ namespace ShopData.Migrations
                 name: "BillingAddress",
                 columns: table => new
                 {
-                    BillingAddressId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreditCardId = table.Column<int>(type: "int", nullable: false),
                     AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -156,12 +156,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BillingAddress", x => x.BillingAddressId);
+                    table.PrimaryKey("PK_BillingAddress", x => x.Id);
                     table.ForeignKey(
                         name: "FK_BillingAddress_CreditCard_CreditCardId",
                         column: x => x.CreditCardId,
                         principalTable: "CreditCard",
-                        principalColumn: "CreditCardId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -169,7 +169,7 @@ namespace ShopData.Migrations
                 name: "Order",
                 columns: table => new
                 {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
@@ -178,12 +178,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.OrderId);
+                    table.PrimaryKey("PK_Order", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Order_Account_AccountId",
                         column: x => x.AccountId,
                         principalTable: "Account",
-                        principalColumn: "AccountId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Order_Product_ProductId",
@@ -218,7 +218,7 @@ namespace ShopData.Migrations
                 name: "Delivery",
                 columns: table => new
                 {
-                    DeliveryId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     DeliveryDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -230,18 +230,18 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Delivery", x => x.DeliveryId);
+                    table.PrimaryKey("PK_Delivery", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Delivery_Order_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Order",
-                        principalColumn: "OrderId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Account",
-                columns: new[] { "AccountId", "CreatedDate", "EmailAddress", "Name" },
+                columns: new[] { "Id", "CreatedDate", "EmailAddress", "Name" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Smith@tacticalforking.com", "Mr Smith" },
@@ -250,7 +250,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "InventoryCheck",
-                columns: new[] { "InventoryCheckId", "CheckDateTime", "InspectorName", "StockId" },
+                columns: new[] { "Id", "CheckDateTime", "InspectorName", "StockId" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "B Bob", 1 },
@@ -295,7 +295,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Address",
-                columns: new[] { "AddressId", "AccountId", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "PostCode" },
+                columns: new[] { "Id", "AccountId", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "PostCode" },
                 values: new object[,]
                 {
                     { 1, 1, "403 Florence Road", "Smethwick", "West Midlands", "Birmingham", "B12345" },
@@ -304,7 +304,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "CreditCard",
-                columns: new[] { "CreditCardId", "AccountId", "CreditCardName", "CreditCardNumber", "CreditDate" },
+                columns: new[] { "Id", "AccountId", "CreditCardName", "CreditCardNumber", "CreditDate" },
                 values: new object[,]
                 {
                     { 1, 1, "Mr A Smith", 123456789, new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
@@ -328,7 +328,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "BillingAddress",
-                columns: new[] { "BillingAddressId", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "CreditCardId", "PostCode" },
+                columns: new[] { "Id", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "CreditCardId", "PostCode" },
                 values: new object[,]
                 {
                     { 1, "403 Florence Road", "Smethwick", "West Midlands", "Birmingham", 1, "B12345" },
@@ -337,7 +337,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Order",
-                columns: new[] { "OrderId", "AccountId", "Price", "ProductId", "Quantity" },
+                columns: new[] { "Id", "AccountId", "Price", "ProductId", "Quantity" },
                 values: new object[,]
                 {
                     { 1, 1, 15.5m, 1, 3 },
@@ -367,7 +367,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Delivery",
-                columns: new[] { "DeliveryId", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "DeliveryDateTime", "OrderId", "PostCode" },
+                columns: new[] { "Id", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "DeliveryDateTime", "OrderId", "PostCode" },
                 values: new object[,]
                 {
                     { 1, "403 Florence Road", "Smethwick", "West Midlands", "Birmingham", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "B12345" },

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopDomain;
+using ShopDomain.Model;
 
 namespace ShopData
 {
@@ -28,29 +28,29 @@ namespace ShopData
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var myAccounts = new List<Account>() {
-                new Account() { AccountId=1, Name = "Mr Smith", EmailAddress = "Smith@tacticalforking.com", CreatedDate = new DateTime(2023,12,01) },
-                new Account() { AccountId=2, Name = "Mr Jones", EmailAddress = "Jones@tacticalforking.com", CreatedDate = new DateTime(2023,12,02) }
+                new Account() { Id=1, Name = "Mr Smith", EmailAddress = "Smith@tacticalforking.com", CreatedDate = new DateTime(2023,12,01) },
+                new Account() { Id=2, Name = "Mr Jones", EmailAddress = "Jones@tacticalforking.com", CreatedDate = new DateTime(2023,12,02) }
             };
 
             modelBuilder.Entity<Account>().HasData(myAccounts);
 
             var myAddresses = new List<Address>() {
-                new Address() { AddressId=1, AccountId=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Address() { AddressId=2, AccountId=2,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
+                new Address() { Id=1, AccountId=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new Address() { Id=2, AccountId=2,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
             };
 
             modelBuilder.Entity<Address>().HasData(myAddresses);
 
             var myCreditCard = new List<CreditCard>() {
-                new CreditCard() { CreditCardId=1, AccountId=1, CreditCardName = "Mr A Smith", CreditCardNumber = 123456789, CreditDate =new DateTime(2023,12,01)},
-                new CreditCard() { CreditCardId=2, AccountId=2, CreditCardName = "Mr B Jones", CreditCardNumber = 987654321, CreditDate=new DateTime(2023,12,01)}
+                new CreditCard() { Id=1, AccountId=1, CreditCardName = "Mr A Smith", CreditCardNumber = 123456789, CreditDate =new DateTime(2023,12,01)},
+                new CreditCard() { Id=2, AccountId=2, CreditCardName = "Mr B Jones", CreditCardNumber = 987654321, CreditDate=new DateTime(2023,12,01)}
             };
 
             modelBuilder.Entity<CreditCard>().HasData(myCreditCard);
 
             var myBillingAddress = new List<BillingAddress>() {
-                new BillingAddress() { BillingAddressId=1, CreditCardId=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new BillingAddress() { BillingAddressId=2, CreditCardId=2,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
+                new BillingAddress() { Id=1, CreditCardId=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new BillingAddress() { Id=2, CreditCardId=2,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
             };
 
             modelBuilder.Entity<BillingAddress>().HasData(myBillingAddress);
@@ -69,27 +69,27 @@ namespace ShopData
             modelBuilder.Entity<Product>().HasData(myProducts);
 
             var myOrders = new List<Order>() {
-                new Order() { OrderId=1, AccountId=1,  ProductId = 1,  Quantity = 3,  Price  = (decimal)15.5},
-                new Order() { OrderId=2, AccountId=1,  ProductId = 2,  Quantity = 1,  Price  = (decimal)10},
-                new Order() { OrderId=3, AccountId=1,  ProductId = 3,  Quantity = 1,  Price  = (decimal)10},
-                new Order() { OrderId=4, AccountId=1,  ProductId = 4,  Quantity = 1,  Price  = (decimal)10},
-                new Order() { OrderId=5, AccountId=2,  ProductId = 5,  Quantity = 3,  Price  = (decimal)15.5},
-                new Order() { OrderId=6, AccountId=2,  ProductId = 6,  Quantity = 1,  Price  = (decimal)10},
-                new Order() { OrderId=7, AccountId=2,  ProductId = 7,  Quantity = 1,  Price  = (decimal)10},
-                new Order() { OrderId=8, AccountId=2,  ProductId = 8,  Quantity = 1,  Price  = (decimal)10}
+                new Order() { Id=1, AccountId=1,  ProductId = 1,  Quantity = 3,  Price  = (decimal)15.5},
+                new Order() { Id=2, AccountId=1,  ProductId = 2,  Quantity = 1,  Price  = (decimal)10},
+                new Order() { Id=3, AccountId=1,  ProductId = 3,  Quantity = 1,  Price  = (decimal)10},
+                new Order() { Id=4, AccountId=1,  ProductId = 4,  Quantity = 1,  Price  = (decimal)10},
+                new Order() { Id=5, AccountId=2,  ProductId = 5,  Quantity = 3,  Price  = (decimal)15.5},
+                new Order() { Id=6, AccountId=2,  ProductId = 6,  Quantity = 1,  Price  = (decimal)10},
+                new Order() { Id=7, AccountId=2,  ProductId = 7,  Quantity = 1,  Price  = (decimal)10},
+                new Order() { Id=8, AccountId=2,  ProductId = 8,  Quantity = 1,  Price  = (decimal)10}
             };
 
             modelBuilder.Entity<Order>().HasData(myOrders);
 
             var myDelivery = new List<Delivery>() {
-                new Delivery() { OrderId=1, DeliveryId=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Delivery() { OrderId=2, DeliveryId=2,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Delivery() { OrderId=3, DeliveryId=3,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Delivery() { OrderId=4, DeliveryId=4,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
-                new Delivery() { OrderId=5, DeliveryId=5,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Delivery() { OrderId=6, DeliveryId=6,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Delivery() { OrderId=7, DeliveryId=7,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
-                new Delivery() { OrderId=8, DeliveryId=8,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"}
+                new Delivery() { OrderId=1, Id=1,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new Delivery() { OrderId=2, Id=2,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new Delivery() { OrderId=3, Id=3,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new Delivery() { OrderId=4, Id=4,  AddressLine1 = "403 Florence Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345"},
+                new Delivery() { OrderId=5, Id=5,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
+                new Delivery() { OrderId=6, Id=6,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
+                new Delivery() { OrderId=7, Id=7,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"},
+                new Delivery() { OrderId=8, Id=8,  AddressLine1 = "501 Parkhill Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890"}
             };
 
             modelBuilder.Entity<Delivery>().HasData(myDelivery);
@@ -121,14 +121,14 @@ namespace ShopData
             modelBuilder.Entity<Supplier>().HasData(mySuppliers);
 
             var myInventoryChecks = new List<InventoryCheck>() {
-                new InventoryCheck() { InventoryCheckId=1, StockId=1,  CheckDateTime = new DateTime(2020,12,01), InspectorName = "B Bob"},
-                new InventoryCheck() { InventoryCheckId=2, StockId=2,  CheckDateTime = new DateTime(2021,01,02), InspectorName = "J Singh"},
-                new InventoryCheck() { InventoryCheckId=3, StockId=3,  CheckDateTime = new DateTime(2021,12,04), InspectorName = "R Khan"},
-                new InventoryCheck() { InventoryCheckId=4, StockId=4,  CheckDateTime = new DateTime(2019,03,06), InspectorName = "E Kumar"},
-                new InventoryCheck() { InventoryCheckId=5, StockId=5,  CheckDateTime = new DateTime(2018,04,01), InspectorName = "E Jones"},
-                new InventoryCheck() { InventoryCheckId=6, StockId=6,  CheckDateTime = new DateTime(2017,09,23), InspectorName = "A Albert"},
-                new InventoryCheck() { InventoryCheckId=7, StockId=7,  CheckDateTime = new DateTime(2019,10,13), InspectorName = "D Montford"},
-                new InventoryCheck() { InventoryCheckId=8, StockId=8,  CheckDateTime = new DateTime(2018,11,05), InspectorName = "S Watson"}
+                new InventoryCheck() { Id=1, StockId=1,  CheckDateTime = new DateTime(2020,12,01), InspectorName = "B Bob"},
+                new InventoryCheck() { Id=2, StockId=2,  CheckDateTime = new DateTime(2021,01,02), InspectorName = "J Singh"},
+                new InventoryCheck() { Id=3, StockId=3,  CheckDateTime = new DateTime(2021,12,04), InspectorName = "R Khan"},
+                new InventoryCheck() { Id=4, StockId=4,  CheckDateTime = new DateTime(2019,03,06), InspectorName = "E Kumar"},
+                new InventoryCheck() { Id=5, StockId=5,  CheckDateTime = new DateTime(2018,04,01), InspectorName = "E Jones"},
+                new InventoryCheck() { Id=6, StockId=6,  CheckDateTime = new DateTime(2017,09,23), InspectorName = "A Albert"},
+                new InventoryCheck() { Id=7, StockId=7,  CheckDateTime = new DateTime(2019,10,13), InspectorName = "D Montford"},
+                new InventoryCheck() { Id=8, StockId=8,  CheckDateTime = new DateTime(2018,11,05), InspectorName = "S Watson"}
             };
 
             modelBuilder.Entity<InventoryCheck>().HasData(myInventoryChecks);

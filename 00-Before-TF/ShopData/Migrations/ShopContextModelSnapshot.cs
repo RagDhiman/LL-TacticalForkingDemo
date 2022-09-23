@@ -22,13 +22,13 @@ namespace ShopData.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopDomain.Account", b =>
+            modelBuilder.Entity("ShopDomain.Model.Account", b =>
                 {
-                    b.Property<int>("AccountId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -41,34 +41,34 @@ namespace ShopData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AccountId");
+                    b.HasKey("Id");
 
                     b.ToTable("Account");
 
                     b.HasData(
                         new
                         {
-                            AccountId = 1,
+                            Id = 1,
                             CreatedDate = new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmailAddress = "Smith@tacticalforking.com",
                             Name = "Mr Smith"
                         },
                         new
                         {
-                            AccountId = 2,
+                            Id = 2,
                             CreatedDate = new DateTime(2023, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmailAddress = "Jones@tacticalforking.com",
                             Name = "Mr Jones"
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Address", b =>
+            modelBuilder.Entity("ShopDomain.Model.Address", b =>
                 {
-                    b.Property<int>("AddressId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
@@ -93,7 +93,7 @@ namespace ShopData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AddressId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AccountId");
 
@@ -102,7 +102,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            AddressId = 1,
+                            Id = 1,
                             AccountId = 1,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
@@ -112,7 +112,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            AddressId = 2,
+                            Id = 2,
                             AccountId = 2,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
@@ -122,13 +122,13 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.BillingAddress", b =>
+            modelBuilder.Entity("ShopDomain.Model.BillingAddress", b =>
                 {
-                    b.Property<int>("BillingAddressId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillingAddressId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AddressLine1")
                         .IsRequired()
@@ -153,7 +153,7 @@ namespace ShopData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BillingAddressId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CreditCardId");
 
@@ -162,7 +162,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            BillingAddressId = 1,
+                            Id = 1,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -172,7 +172,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            BillingAddressId = 2,
+                            Id = 2,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -182,13 +182,13 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.CreditCard", b =>
+            modelBuilder.Entity("ShopDomain.Model.CreditCard", b =>
                 {
-                    b.Property<int>("CreditCardId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CreditCardId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
@@ -203,7 +203,7 @@ namespace ShopData.Migrations
                     b.Property<DateTime>("CreditDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("CreditCardId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AccountId");
 
@@ -212,7 +212,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            CreditCardId = 1,
+                            Id = 1,
                             AccountId = 1,
                             CreditCardName = "Mr A Smith",
                             CreditCardNumber = 123456789,
@@ -220,7 +220,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            CreditCardId = 2,
+                            Id = 2,
                             AccountId = 2,
                             CreditCardName = "Mr B Jones",
                             CreditCardNumber = 987654321,
@@ -228,13 +228,13 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Delivery", b =>
+            modelBuilder.Entity("ShopDomain.Model.Delivery", b =>
                 {
-                    b.Property<int>("DeliveryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliveryId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AddressLine1")
                         .IsRequired()
@@ -262,7 +262,7 @@ namespace ShopData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DeliveryId");
+                    b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
@@ -271,7 +271,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            DeliveryId = 1,
+                            Id = 1,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -282,7 +282,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 2,
+                            Id = 2,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -293,7 +293,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 3,
+                            Id = 3,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -304,7 +304,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 4,
+                            Id = 4,
                             AddressLine1 = "403 Florence Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -315,7 +315,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 5,
+                            Id = 5,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -326,7 +326,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 6,
+                            Id = 6,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -337,7 +337,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 7,
+                            Id = 7,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -348,7 +348,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            DeliveryId = 8,
+                            Id = 8,
                             AddressLine1 = "501 Parkhill Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -359,13 +359,13 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.InventoryCheck", b =>
+            modelBuilder.Entity("ShopDomain.Model.InventoryCheck", b =>
                 {
-                    b.Property<int>("InventoryCheckId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InventoryCheckId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CheckDateTime")
                         .HasColumnType("datetime2");
@@ -377,76 +377,76 @@ namespace ShopData.Migrations
                     b.Property<int>("StockId")
                         .HasColumnType("int");
 
-                    b.HasKey("InventoryCheckId");
+                    b.HasKey("Id");
 
                     b.ToTable("InventoryCheck");
 
                     b.HasData(
                         new
                         {
-                            InventoryCheckId = 1,
+                            Id = 1,
                             CheckDateTime = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "B Bob",
                             StockId = 1
                         },
                         new
                         {
-                            InventoryCheckId = 2,
+                            Id = 2,
                             CheckDateTime = new DateTime(2021, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "J Singh",
                             StockId = 2
                         },
                         new
                         {
-                            InventoryCheckId = 3,
+                            Id = 3,
                             CheckDateTime = new DateTime(2021, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "R Khan",
                             StockId = 3
                         },
                         new
                         {
-                            InventoryCheckId = 4,
+                            Id = 4,
                             CheckDateTime = new DateTime(2019, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "E Kumar",
                             StockId = 4
                         },
                         new
                         {
-                            InventoryCheckId = 5,
+                            Id = 5,
                             CheckDateTime = new DateTime(2018, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "E Jones",
                             StockId = 5
                         },
                         new
                         {
-                            InventoryCheckId = 6,
+                            Id = 6,
                             CheckDateTime = new DateTime(2017, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "A Albert",
                             StockId = 6
                         },
                         new
                         {
-                            InventoryCheckId = 7,
+                            Id = 7,
                             CheckDateTime = new DateTime(2019, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "D Montford",
                             StockId = 7
                         },
                         new
                         {
-                            InventoryCheckId = 8,
+                            Id = 8,
                             CheckDateTime = new DateTime(2018, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InspectorName = "S Watson",
                             StockId = 8
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Order", b =>
+            modelBuilder.Entity("ShopDomain.Model.Order", b =>
                 {
-                    b.Property<int>("OrderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
@@ -460,7 +460,7 @@ namespace ShopData.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AccountId");
 
@@ -471,7 +471,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            OrderId = 1,
+                            Id = 1,
                             AccountId = 1,
                             Price = 15.5m,
                             ProductId = 1,
@@ -479,7 +479,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 2,
+                            Id = 2,
                             AccountId = 1,
                             Price = 10m,
                             ProductId = 2,
@@ -487,7 +487,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 3,
+                            Id = 3,
                             AccountId = 1,
                             Price = 10m,
                             ProductId = 3,
@@ -495,7 +495,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 4,
+                            Id = 4,
                             AccountId = 1,
                             Price = 10m,
                             ProductId = 4,
@@ -503,7 +503,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 5,
+                            Id = 5,
                             AccountId = 2,
                             Price = 15.5m,
                             ProductId = 5,
@@ -511,7 +511,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 6,
+                            Id = 6,
                             AccountId = 2,
                             Price = 10m,
                             ProductId = 6,
@@ -519,7 +519,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 7,
+                            Id = 7,
                             AccountId = 2,
                             Price = 10m,
                             ProductId = 7,
@@ -527,7 +527,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            OrderId = 8,
+                            Id = 8,
                             AccountId = 2,
                             Price = 10m,
                             ProductId = 8,
@@ -535,7 +535,7 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.OrderHistory", b =>
+            modelBuilder.Entity("ShopDomain.Model.OrderHistory", b =>
                 {
                     b.Property<int>("OrderHistoryId")
                         .ValueGeneratedOnAdd()
@@ -604,7 +604,7 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Product", b =>
+            modelBuilder.Entity("ShopDomain.Model.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -709,7 +709,7 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Stock", b =>
+            modelBuilder.Entity("ShopDomain.Model.Stock", b =>
                 {
                     b.Property<int>("StockId")
                         .ValueGeneratedOnAdd()
@@ -791,7 +791,7 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Supplier", b =>
+            modelBuilder.Entity("ShopDomain.Model.Supplier", b =>
                 {
                     b.Property<int>("SupplierId")
                         .ValueGeneratedOnAdd()
@@ -922,9 +922,9 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Address", b =>
+            modelBuilder.Entity("ShopDomain.Model.Address", b =>
                 {
-                    b.HasOne("ShopDomain.Account", "Account")
+                    b.HasOne("ShopDomain.Model.Account", "Account")
                         .WithMany()
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -933,9 +933,9 @@ namespace ShopData.Migrations
                     b.Navigation("Account");
                 });
 
-            modelBuilder.Entity("ShopDomain.BillingAddress", b =>
+            modelBuilder.Entity("ShopDomain.Model.BillingAddress", b =>
                 {
-                    b.HasOne("ShopDomain.CreditCard", "CreditCard")
+                    b.HasOne("ShopDomain.Model.CreditCard", "CreditCard")
                         .WithMany()
                         .HasForeignKey("CreditCardId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -944,9 +944,9 @@ namespace ShopData.Migrations
                     b.Navigation("CreditCard");
                 });
 
-            modelBuilder.Entity("ShopDomain.CreditCard", b =>
+            modelBuilder.Entity("ShopDomain.Model.CreditCard", b =>
                 {
-                    b.HasOne("ShopDomain.Account", "Account")
+                    b.HasOne("ShopDomain.Model.Account", "Account")
                         .WithMany()
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -955,9 +955,9 @@ namespace ShopData.Migrations
                     b.Navigation("Account");
                 });
 
-            modelBuilder.Entity("ShopDomain.Delivery", b =>
+            modelBuilder.Entity("ShopDomain.Model.Delivery", b =>
                 {
-                    b.HasOne("ShopDomain.Order", "Order")
+                    b.HasOne("ShopDomain.Model.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -966,15 +966,15 @@ namespace ShopData.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("ShopDomain.Order", b =>
+            modelBuilder.Entity("ShopDomain.Model.Order", b =>
                 {
-                    b.HasOne("ShopDomain.Account", "Account")
+                    b.HasOne("ShopDomain.Model.Account", "Account")
                         .WithMany()
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopDomain.Product", "Product")
+                    b.HasOne("ShopDomain.Model.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -985,9 +985,9 @@ namespace ShopData.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ShopDomain.Product", b =>
+            modelBuilder.Entity("ShopDomain.Model.Product", b =>
                 {
-                    b.HasOne("ShopDomain.Supplier", "Supplier")
+                    b.HasOne("ShopDomain.Model.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -996,9 +996,9 @@ namespace ShopData.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("ShopDomain.Stock", b =>
+            modelBuilder.Entity("ShopDomain.Model.Stock", b =>
                 {
-                    b.HasOne("ShopDomain.Product", "Product")
+                    b.HasOne("ShopDomain.Model.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
