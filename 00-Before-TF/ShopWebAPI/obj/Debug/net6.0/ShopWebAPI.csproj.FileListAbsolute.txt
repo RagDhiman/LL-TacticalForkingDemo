@@ -5,6 +5,8 @@ C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebA
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\ShopWebAPI.runtimeconfig.json
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\ShopWebAPI.dll
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\ShopWebAPI.pdb
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -63,5 +65,3 @@ C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebA
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ShopWebAPI.pdb
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ShopWebAPI.genruntimeconfig.cache
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ref\ShopWebAPI.dll
-C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

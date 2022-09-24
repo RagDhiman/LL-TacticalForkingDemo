@@ -2,7 +2,7 @@ using ShopDomain.DataAccess;
 
 namespace ShopWebAPI.Model
 {
-    public class InventoryCheckModel : IEntity
+    public class InventoryCheckModel
     {
         public int Id { get; set; }
         public int StockId { get; set; }

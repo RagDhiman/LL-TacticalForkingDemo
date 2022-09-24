@@ -6,17 +6,17 @@ namespace ShopData
     public class ShopContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<Account> Address { get; set; }
-        public DbSet<Account> BillingAddress { get; set; }
-        public DbSet<Account> CreditCard { get; set; }
-        public DbSet<Account> Delivery { get; set; }
-        public DbSet<Account> Inventory { get; set; }
-        public DbSet<Account> Order { get; set; }
-        public DbSet<Account> OrderHistory { get; set; }
-        public DbSet<Account> Product { get; set; }
-        public DbSet<Account> Return { get; set; }
-        public DbSet<Account> Stock { get; set; }
-        public DbSet<Account> Supplier { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<BillingAddress> BillingAddress { get; set; }
+        public DbSet<CreditCard> CreditCard { get; set; }
+        public DbSet<Delivery> Delivery { get; set; }
+        public DbSet<InventoryCheck> InventoryCheck { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderHistory> OrderHistory { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Return> Return { get; set; }
+        public DbSet<Stock> Stock { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,14 +56,14 @@ namespace ShopData
             modelBuilder.Entity<BillingAddress>().HasData(myBillingAddress);
 
             var myProducts = new List<Product>() {
-                new Product() { ProductId=1, ProductCategoryId = 10, ProductName = "Phone Case",   ProductPrice= (decimal)12.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,12,01)},
-                new Product() { ProductId=2, ProductCategoryId = 11, ProductName = "Phone Charger",   ProductPrice= (decimal)22.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,11,01)},
-                new Product() { ProductId=3, ProductCategoryId = 12, ProductName = "Phone Lead",   ProductPrice= (decimal)2.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,10,01)},
-                new Product() { ProductId=4, ProductCategoryId = 13, ProductName = "Phone Mount",   ProductPrice= (decimal)17.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,09,01)},
-                new Product() { ProductId=5, ProductCategoryId = 14, ProductName = "Phone Car Mount",   ProductPrice= (decimal)20.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,08,01)},
-                new Product() { ProductId=6, ProductCategoryId = 15, ProductName = "Phone Battery Bank",   ProductPrice= (decimal)30.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,07,01)},
-                new Product() { ProductId=7, ProductCategoryId = 16, ProductName = "Phone Screen Protector",   ProductPrice= (decimal)9.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,06,01)},
-                new Product() { ProductId=8, ProductCategoryId = 17, ProductName = "Phone Wallet",   ProductPrice= (decimal)15.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,05,01)},
+                new Product() { Id=1, ProductCategoryId = 10, ProductName = "Phone Case",   ProductPrice= (decimal)12.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,12,01)},
+                new Product() { Id=2, ProductCategoryId = 11, ProductName = "Phone Charger",   ProductPrice= (decimal)22.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,11,01)},
+                new Product() { Id=3, ProductCategoryId = 12, ProductName = "Phone Lead",   ProductPrice= (decimal)2.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,10,01)},
+                new Product() { Id=4, ProductCategoryId = 13, ProductName = "Phone Mount",   ProductPrice= (decimal)17.5,  SupplierId = 1,  CreatedDate = new DateTime(2020,09,01)},
+                new Product() { Id=5, ProductCategoryId = 14, ProductName = "Phone Car Mount",   ProductPrice= (decimal)20.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,08,01)},
+                new Product() { Id=6, ProductCategoryId = 15, ProductName = "Phone Battery Bank",   ProductPrice= (decimal)30.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,07,01)},
+                new Product() { Id=7, ProductCategoryId = 16, ProductName = "Phone Screen Protector",   ProductPrice= (decimal)9.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,06,01)},
+                new Product() { Id=8, ProductCategoryId = 17, ProductName = "Phone Wallet",   ProductPrice= (decimal)15.5,  SupplierId = 2,  CreatedDate = new DateTime(2020,05,01)},
             };
 
             modelBuilder.Entity<Product>().HasData(myProducts);
@@ -95,27 +95,27 @@ namespace ShopData
             modelBuilder.Entity<Delivery>().HasData(myDelivery);
 
             var myOrderHistories = new List<OrderHistory>() {
-                new OrderHistory() { OrderId=1, OrderHistoryId=1, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=2, OrderHistoryId=2, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=3, OrderHistoryId=3, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=4, OrderHistoryId=4, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=5, OrderHistoryId=5, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=6, OrderHistoryId=6, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=7, OrderHistoryId=7, OrderDate = new DateTime(2020,12,01)},
-                new OrderHistory() { OrderId=8, OrderHistoryId=8, OrderDate = new DateTime(2020,12,01)}
+                new OrderHistory() { OrderId=1, Id=1, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=2, Id=2, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=3, Id=3, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=4, Id=4, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=5, Id=5, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=6, Id=6, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=7, Id=7, OrderDate = new DateTime(2020,12,01)},
+                new OrderHistory() { OrderId=8, Id=8, OrderDate = new DateTime(2020,12,01)}
             };
 
             modelBuilder.Entity<OrderHistory>().HasData(myOrderHistories);
 
             var mySuppliers = new List<Supplier>() {
-                new Supplier() { SupplierId=1,  SupplierName="Bell",  AddressLine1 = "304 Coventory Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=2,  SupplierName="Sapple",  AddressLine1 = "504 Wolverhampton Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=3,  SupplierName="Hamsung",  AddressLine1 = "873 Beachway Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=4,  SupplierName="Rony",  AddressLine1 = "490 Lowson Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=5,  SupplierName="Vega",  AddressLine1 = "222 Rawlings Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=6,  SupplierName="Jeto",  AddressLine1 = "321 Gillot Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=7,  SupplierName="Ketol",  AddressLine1 = "403 Hagley Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
-                new Supplier() { SupplierId=8,  SupplierName="Airr",  AddressLine1 = "302 Broad Street", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"}
+                new Supplier() { Id=1,  SupplierName="Bell",  AddressLine1 = "304 Coventory Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { Id=2,  SupplierName="Sapple",  AddressLine1 = "504 Wolverhampton Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { Id=3,  SupplierName="Hamsung",  AddressLine1 = "873 Beachway Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { Id=4,  SupplierName="Rony",  AddressLine1 = "490 Lowson Road", AddressLine2 = "Smethwick",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B12345", TelephoneNo = "23423424"},
+                new Supplier() { Id=5,  SupplierName="Vega",  AddressLine1 = "222 Rawlings Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { Id=6,  SupplierName="Jeto",  AddressLine1 = "321 Gillot Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { Id=7,  SupplierName="Ketol",  AddressLine1 = "403 Hagley Road", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"},
+                new Supplier() { Id=8,  SupplierName="Airr",  AddressLine1 = "302 Broad Street", AddressLine2 = "Blue Gates",  AddressLine3="West Midlands", CityTown = "Birmingham", PostCode = "B67890", TelephoneNo = "23423424"}
             };
 
             modelBuilder.Entity<Supplier>().HasData(mySuppliers);
@@ -134,17 +134,30 @@ namespace ShopData
             modelBuilder.Entity<InventoryCheck>().HasData(myInventoryChecks);
 
             var myStocks = new List<Stock>() {
-                new Stock() { InventoryCheckId=1, StockId=1,  ProductId = 1, Quantity = 23423},
-                new Stock() { InventoryCheckId=2, StockId=2,  ProductId = 2, Quantity = 23423},
-                new Stock() { InventoryCheckId=3, StockId=3,  ProductId = 3, Quantity = 23423},
-                new Stock() { InventoryCheckId=4, StockId=4,  ProductId = 4, Quantity = 23423},
-                new Stock() { InventoryCheckId=5, StockId=5,  ProductId = 5, Quantity = 23423},
-                new Stock() { InventoryCheckId=6, StockId=6,  ProductId = 6, Quantity = 23423},
-                new Stock() { InventoryCheckId=7, StockId=7,  ProductId = 7, Quantity = 23423},
-                new Stock() { InventoryCheckId=8, StockId=8,  ProductId = 8, Quantity = 23423}
+                new Stock() { InventoryCheckId=1, Id=1,  ProductId = 1, Quantity = 23423},
+                new Stock() { InventoryCheckId=2, Id=2,  ProductId = 2, Quantity = 23423},
+                new Stock() { InventoryCheckId=3, Id=3,  ProductId = 3, Quantity = 23423},
+                new Stock() { InventoryCheckId=4, Id=4,  ProductId = 4, Quantity = 23423},
+                new Stock() { InventoryCheckId=5, Id=5,  ProductId = 5, Quantity = 23423},
+                new Stock() { InventoryCheckId=6, Id=6,  ProductId = 6, Quantity = 23423},
+                new Stock() { InventoryCheckId=7, Id=7,  ProductId = 7, Quantity = 23423},
+                new Stock() { InventoryCheckId=8, Id=8,  ProductId = 8, Quantity = 23423}
             };
 
             modelBuilder.Entity<Stock>().HasData(myStocks);
+
+            var myReturns = new List<Return>() {
+                new Return() { Id=1, Refund=true,  OrderId = 1, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=2, Refund=true,  OrderId = 2, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=3, Refund=true,  OrderId = 3, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=4, Refund=true,  OrderId = 4, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=5, Refund=true,  OrderId = 5, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=6, Refund=true,  OrderId = 6, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=7, Refund=true,  OrderId = 7, ReturnDate = new DateTime(2020,12,01) },
+                new Return() { Id=8, Refund=true,  OrderId = 8, ReturnDate = new DateTime(2020,12,01) }
+            };
+
+            modelBuilder.Entity<Return>().HasData(myReturns);
         }
     }
 }

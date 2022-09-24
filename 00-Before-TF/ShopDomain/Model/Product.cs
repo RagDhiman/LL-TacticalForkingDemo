@@ -1,8 +1,10 @@
+using ShopDomain.DataAccess;
+
 namespace ShopDomain.Model
 {
-    public class Product
+    public class Product : IEntity
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         public string ProductName { get; set; }
         public int ProductCategoryId { get; set; }
         public decimal ProductPrice { get; set; }

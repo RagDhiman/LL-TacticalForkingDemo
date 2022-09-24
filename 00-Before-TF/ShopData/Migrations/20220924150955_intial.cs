@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ShopData.Migrations
 {
-    public partial class initial : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Account",
+                name: "Accounts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,7 +21,7 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Account", x => x.Id);
+                    table.PrimaryKey("PK_Accounts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,21 +43,21 @@ namespace ShopData.Migrations
                 name: "OrderHistory",
                 columns: table => new
                 {
-                    OrderHistoryId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderHistory", x => x.OrderHistoryId);
+                    table.PrimaryKey("PK_OrderHistory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Supplier",
                 columns: table => new
                 {
-                    SupplierId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SupplierName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -69,7 +69,7 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Supplier", x => x.SupplierId);
+                    table.PrimaryKey("PK_Supplier", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,9 +89,9 @@ namespace ShopData.Migrations
                 {
                     table.PrimaryKey("PK_Address", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Address_Account_AccountId",
+                        name: "FK_Address_Accounts_AccountId",
                         column: x => x.AccountId,
-                        principalTable: "Account",
+                        principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -111,9 +111,9 @@ namespace ShopData.Migrations
                 {
                     table.PrimaryKey("PK_CreditCard", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CreditCard_Account_AccountId",
+                        name: "FK_CreditCard_Accounts_AccountId",
                         column: x => x.AccountId,
-                        principalTable: "Account",
+                        principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -122,7 +122,7 @@ namespace ShopData.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductCategoryId = table.Column<int>(type: "int", nullable: false),
@@ -132,12 +132,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.ProductId);
+                    table.PrimaryKey("PK_Product", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Product_Supplier_SupplierId",
                         column: x => x.SupplierId,
                         principalTable: "Supplier",
-                        principalColumn: "SupplierId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -180,16 +180,16 @@ namespace ShopData.Migrations
                 {
                     table.PrimaryKey("PK_Order", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_Account_AccountId",
+                        name: "FK_Order_Accounts_AccountId",
                         column: x => x.AccountId,
-                        principalTable: "Account",
+                        principalTable: "Accounts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Order_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
-                        principalColumn: "ProductId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -197,7 +197,7 @@ namespace ShopData.Migrations
                 name: "Stock",
                 columns: table => new
                 {
-                    StockId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
@@ -205,12 +205,12 @@ namespace ShopData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stock", x => x.StockId);
+                    table.PrimaryKey("PK_Stock", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Stock_Product_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Product",
-                        principalColumn: "ProductId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -239,8 +239,29 @@ namespace ShopData.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Return",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Refund = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Return", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Return_Order_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Order",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
-                table: "Account",
+                table: "Accounts",
                 columns: new[] { "Id", "CreatedDate", "EmailAddress", "Name" },
                 values: new object[,]
                 {
@@ -265,7 +286,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "OrderHistory",
-                columns: new[] { "OrderHistoryId", "OrderDate", "OrderId" },
+                columns: new[] { "Id", "OrderDate", "OrderId" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
@@ -280,7 +301,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Supplier",
-                columns: new[] { "SupplierId", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "PostCode", "SupplierName", "TelephoneNo" },
+                columns: new[] { "Id", "AddressLine1", "AddressLine2", "AddressLine3", "CityTown", "PostCode", "SupplierName", "TelephoneNo" },
                 values: new object[,]
                 {
                     { 1, "304 Coventory Road", "Smethwick", "West Midlands", "Birmingham", "B12345", "Bell", "23423424" },
@@ -313,7 +334,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "ProductId", "CreatedDate", "ProductCategoryId", "ProductName", "ProductPrice", "SupplierId" },
+                columns: new[] { "Id", "CreatedDate", "ProductCategoryId", "ProductName", "ProductPrice", "SupplierId" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, "Phone Case", 12.5m, 1 },
@@ -352,7 +373,7 @@ namespace ShopData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Stock",
-                columns: new[] { "StockId", "InventoryCheckId", "ProductId", "Quantity" },
+                columns: new[] { "Id", "InventoryCheckId", "ProductId", "Quantity" },
                 values: new object[,]
                 {
                     { 1, 1, 1, 23423 },
@@ -378,6 +399,21 @@ namespace ShopData.Migrations
                     { 6, "501 Parkhill Road", "Blue Gates", "West Midlands", "Birmingham", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, "B67890" },
                     { 7, "501 Parkhill Road", "Blue Gates", "West Midlands", "Birmingham", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, "B67890" },
                     { 8, "501 Parkhill Road", "Blue Gates", "West Midlands", "Birmingham", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, "B67890" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Return",
+                columns: new[] { "Id", "OrderId", "Refund", "ReturnDate" },
+                values: new object[,]
+                {
+                    { 1, 1, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 2, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 3, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, 4, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 5, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, 6, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 7, 7, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 8, 8, true, new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -416,6 +452,11 @@ namespace ShopData.Migrations
                 column: "SupplierId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Return_OrderId",
+                table: "Return",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Stock_ProductId",
                 table: "Stock",
                 column: "ProductId");
@@ -439,6 +480,9 @@ namespace ShopData.Migrations
                 name: "OrderHistory");
 
             migrationBuilder.DropTable(
+                name: "Return");
+
+            migrationBuilder.DropTable(
                 name: "Stock");
 
             migrationBuilder.DropTable(
@@ -448,7 +492,7 @@ namespace ShopData.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Account");
+                name: "Accounts");
 
             migrationBuilder.DropTable(
                 name: "Product");

@@ -2,7 +2,7 @@ using ShopDomain.DataAccess;
 
 namespace ShopWebAPI.Model
 {
-    public class BillingAddressModel: IEntity
+    public class BillingAddressModel
     {
         public int Id { get; set; }
         public int CreditCardId { get; set; }

@@ -2,7 +2,7 @@ using ShopDomain.DataAccess;
 
 namespace ShopWebAPI.Model
 {
-    public class CreditCardModel: IEntity
+    public class CreditCardModel
     {
         public int Id { get; set; }
         public int AccountId { get; set; }

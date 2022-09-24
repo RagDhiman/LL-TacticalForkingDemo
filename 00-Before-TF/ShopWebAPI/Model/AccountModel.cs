@@ -2,7 +2,7 @@ using ShopDomain.DataAccess;
 
 namespace ShopWebAPI.Model
 {
-    public class AccountModel: IEntity
+    public class AccountModel
     {
         public int Id { get; set; }
 

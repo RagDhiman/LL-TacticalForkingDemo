@@ -12,8 +12,8 @@ using ShopData;
 namespace ShopData.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20220923153318_initial")]
-    partial class initial
+    [Migration("20220924150955_intial")]
+    partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,7 +45,7 @@ namespace ShopData.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Account");
+                    b.ToTable("Accounts");
 
                     b.HasData(
                         new
@@ -539,11 +539,11 @@ namespace ShopData.Migrations
 
             modelBuilder.Entity("ShopDomain.Model.OrderHistory", b =>
                 {
-                    b.Property<int>("OrderHistoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderHistoryId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -551,56 +551,56 @@ namespace ShopData.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderHistoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("OrderHistory");
 
                     b.HasData(
                         new
                         {
-                            OrderHistoryId = 1,
+                            Id = 1,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 1
                         },
                         new
                         {
-                            OrderHistoryId = 2,
+                            Id = 2,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 2
                         },
                         new
                         {
-                            OrderHistoryId = 3,
+                            Id = 3,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 3
                         },
                         new
                         {
-                            OrderHistoryId = 4,
+                            Id = 4,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 4
                         },
                         new
                         {
-                            OrderHistoryId = 5,
+                            Id = 5,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 5
                         },
                         new
                         {
-                            OrderHistoryId = 6,
+                            Id = 6,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 6
                         },
                         new
                         {
-                            OrderHistoryId = 7,
+                            Id = 7,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 7
                         },
                         new
                         {
-                            OrderHistoryId = 8,
+                            Id = 8,
                             OrderDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderId = 8
                         });
@@ -608,11 +608,11 @@ namespace ShopData.Migrations
 
             modelBuilder.Entity("ShopDomain.Model.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -630,7 +630,7 @@ namespace ShopData.Migrations
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SupplierId");
 
@@ -639,7 +639,7 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
+                            Id = 1,
                             CreatedDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 10,
                             ProductName = "Phone Case",
@@ -648,7 +648,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 2,
+                            Id = 2,
                             CreatedDate = new DateTime(2020, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 11,
                             ProductName = "Phone Charger",
@@ -657,7 +657,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 3,
+                            Id = 3,
                             CreatedDate = new DateTime(2020, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 12,
                             ProductName = "Phone Lead",
@@ -666,7 +666,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 4,
+                            Id = 4,
                             CreatedDate = new DateTime(2020, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 13,
                             ProductName = "Phone Mount",
@@ -675,7 +675,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 5,
+                            Id = 5,
                             CreatedDate = new DateTime(2020, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 14,
                             ProductName = "Phone Car Mount",
@@ -684,7 +684,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 6,
+                            Id = 6,
                             CreatedDate = new DateTime(2020, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 15,
                             ProductName = "Phone Battery Bank",
@@ -693,7 +693,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 7,
+                            Id = 7,
                             CreatedDate = new DateTime(2020, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 16,
                             ProductName = "Phone Screen Protector",
@@ -702,7 +702,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            ProductId = 8,
+                            Id = 8,
                             CreatedDate = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ProductCategoryId = 17,
                             ProductName = "Phone Wallet",
@@ -711,13 +711,95 @@ namespace ShopData.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopDomain.Model.Stock", b =>
+            modelBuilder.Entity("ShopDomain.Model.Return", b =>
                 {
-                    b.Property<int>("StockId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StockId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Refund")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ReturnDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Return");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            OrderId = 1,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            OrderId = 2,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            OrderId = 3,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            OrderId = 4,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            OrderId = 5,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            OrderId = 6,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            OrderId = 7,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            OrderId = 8,
+                            Refund = true,
+                            ReturnDate = new DateTime(2020, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("ShopDomain.Model.Stock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("InventoryCheckId")
                         .HasColumnType("int");
@@ -728,7 +810,7 @@ namespace ShopData.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("StockId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
@@ -737,56 +819,56 @@ namespace ShopData.Migrations
                     b.HasData(
                         new
                         {
-                            StockId = 1,
+                            Id = 1,
                             InventoryCheckId = 1,
                             ProductId = 1,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 2,
+                            Id = 2,
                             InventoryCheckId = 2,
                             ProductId = 2,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 3,
+                            Id = 3,
                             InventoryCheckId = 3,
                             ProductId = 3,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 4,
+                            Id = 4,
                             InventoryCheckId = 4,
                             ProductId = 4,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 5,
+                            Id = 5,
                             InventoryCheckId = 5,
                             ProductId = 5,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 6,
+                            Id = 6,
                             InventoryCheckId = 6,
                             ProductId = 6,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 7,
+                            Id = 7,
                             InventoryCheckId = 7,
                             ProductId = 7,
                             Quantity = 23423
                         },
                         new
                         {
-                            StockId = 8,
+                            Id = 8,
                             InventoryCheckId = 8,
                             ProductId = 8,
                             Quantity = 23423
@@ -795,11 +877,11 @@ namespace ShopData.Migrations
 
             modelBuilder.Entity("ShopDomain.Model.Supplier", b =>
                 {
-                    b.Property<int>("SupplierId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SupplierId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AddressLine1")
                         .IsRequired()
@@ -829,14 +911,14 @@ namespace ShopData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("SupplierId");
+                    b.HasKey("Id");
 
                     b.ToTable("Supplier");
 
                     b.HasData(
                         new
                         {
-                            SupplierId = 1,
+                            Id = 1,
                             AddressLine1 = "304 Coventory Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -847,7 +929,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 2,
+                            Id = 2,
                             AddressLine1 = "504 Wolverhampton Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -858,7 +940,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 3,
+                            Id = 3,
                             AddressLine1 = "873 Beachway Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -869,7 +951,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 4,
+                            Id = 4,
                             AddressLine1 = "490 Lowson Road",
                             AddressLine2 = "Smethwick",
                             AddressLine3 = "West Midlands",
@@ -880,7 +962,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 5,
+                            Id = 5,
                             AddressLine1 = "222 Rawlings Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -891,7 +973,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 6,
+                            Id = 6,
                             AddressLine1 = "321 Gillot Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -902,7 +984,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 7,
+                            Id = 7,
                             AddressLine1 = "403 Hagley Road",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -913,7 +995,7 @@ namespace ShopData.Migrations
                         },
                         new
                         {
-                            SupplierId = 8,
+                            Id = 8,
                             AddressLine1 = "302 Broad Street",
                             AddressLine2 = "Blue Gates",
                             AddressLine3 = "West Midlands",
@@ -996,6 +1078,17 @@ namespace ShopData.Migrations
                         .IsRequired();
 
                     b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("ShopDomain.Model.Return", b =>
+                {
+                    b.HasOne("ShopDomain.Model.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("ShopDomain.Model.Stock", b =>
