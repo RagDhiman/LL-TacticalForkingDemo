@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ShopData;
 using ShopDomain.DataAccess;
@@ -6,18 +6,17 @@ using ShopDomain.Model;
 
 namespace ShopWebAPI.Controllers
 {
+    [Route("api/[controller]")]
     public class AccountController : Controller
     {
         private IRepository<Account> _repository;
+        private readonly IMapper _mapper;
 
-        public AccountController()
-        {
-            _repository = new Repository<Account>();
-        }
 
-        public AccountController(IRepository<Account> repository)
+        public AccountController(IRepository<Account> repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -89,9 +88,11 @@ namespace ShopWebAPI.Controllers
                 var currentAccount = await _repository.GetByIdAsync(updatedModel.Id);
                 if (currentAccount == null) return NotFound($"Could not find Address with Id of {updatedModel.Id}");
 
-                if (await _repository.UpdateAsync(updatedModel))
+                _mapper.Map(updatedModel, currentAccount);
+
+                if (await _repository.SaveAsync())
                 {
-                    return updatedModel;
+                    return _mapper.Map<Account>(currentAccount);
                 }
             }
             catch (Exception e)

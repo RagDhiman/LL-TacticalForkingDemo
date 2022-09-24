@@ -45,5 +45,10 @@ namespace ShopData
 
             return (await _context.SaveChangesAsync()) > 0;
         }
+
+        public async Task<bool> SaveAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
     }
 }

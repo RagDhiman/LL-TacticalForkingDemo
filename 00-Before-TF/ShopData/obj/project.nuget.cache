@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EcZA4YiNO5PtyaxmYaeFcFda6vRb1XwcCH+GQu/C+BgD2W43Kfk7rbPFgnanBB+hscOB2MeKe1vwF+8peesMKA==",
+  "dgSpecHash": "mxgxJRiM4+0BZaPrBiZCfygihghn92OzE5BuZDxUJhUd+HLuJESCybRIGm91CiIP2tlOFX4u6AMFX6uxIt3n/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopData\\ShopData.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rag\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Rag\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Rag\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Rag\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Rag\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Rag\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Rag\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.9\\microsoft.entityframeworkcore.6.0.9.nupkg.sha512",

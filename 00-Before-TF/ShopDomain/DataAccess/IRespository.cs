@@ -13,5 +13,7 @@ namespace ShopDomain.DataAccess
         Task<bool> AddAsync(T obj);
         Task<bool> UpdateAsync(T obj);
         Task<bool> Delete(object id);
+        Task<bool> SaveAsync();
+
     }
 }

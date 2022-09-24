@@ -63,3 +63,5 @@ C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebA
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ShopWebAPI.pdb
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ShopWebAPI.genruntimeconfig.cache
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\obj\Debug\net6.0\ref\ShopWebAPI.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\00-Before-TF\ShopWebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
