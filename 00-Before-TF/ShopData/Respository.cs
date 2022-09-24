@@ -31,17 +31,24 @@ namespace ShopData
 
             return (await _context.SaveChangesAsync()) > 0;
         }
-        public async Task<bool> UpdateAsync(T obj)
+        public async Task<bool> UpdateUnTrackedAsync(T obj)
         {
             _dbSet.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
 
             return (await _context.SaveChangesAsync()) > 0;
         }
-        public async Task<bool> Delete(object id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
             _dbSet.Remove(entity);
+
+            return (await _context.SaveChangesAsync()) > 0;
+        }
+
+        public async Task<bool> DeleteAsync(T trackedObj)
+        {
+            _dbSet.Remove(trackedObj);
 
             return (await _context.SaveChangesAsync()) > 0;
         }

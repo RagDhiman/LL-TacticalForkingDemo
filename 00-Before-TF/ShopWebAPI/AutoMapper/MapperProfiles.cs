@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ShopDomain.Model;
+using ShopWebAPI.Model;
 
 namespace ShopWebAPI.AutoMapper
 {
@@ -7,9 +8,9 @@ namespace ShopWebAPI.AutoMapper
     {
         public MapperProfiles()
         {
-            this.CreateMap<Account, Account>();
+            this.CreateMap<AccountModel, Account>()
                 //.ForMember(c => c.Id, opt => opt.Ignore())
-                //.ReverseMap();
+                .ReverseMap();
         }
     }
 }

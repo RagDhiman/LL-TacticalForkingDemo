@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ShopData;
 using ShopDomain.DataAccess;
 using ShopDomain.Model;
+using ShopWebAPI.Model;
 
 namespace ShopWebAPI.Controllers
 {
@@ -20,12 +21,13 @@ namespace ShopWebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Account[]>> Get()
+        public async Task<ActionResult<AccountModel[]>> Get()
         {
             try
             {
                 var results = await _repository.GetAllAsync();
-                return results.ToArray();
+
+                return _mapper.Map<AccountModel[]>(results);
             }
             catch (Exception)
             {
@@ -34,14 +36,14 @@ namespace ShopWebAPI.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<ActionResult<Account>> Get(int Id)
+        public async Task<ActionResult<AccountModel>> Get(int Id)
         {
             try
             {
                 var result = await _repository.GetByIdAsync(Id);
 
                 if (result == null) return NotFound();
-                return result;
+                return _mapper.Map<AccountModel>(result);
 
             }
             catch (Exception)
@@ -51,7 +53,7 @@ namespace ShopWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Account>> Post(Account model)
+        public async Task<ActionResult<AccountModel>> Post(AccountModel model)
         {
             try
             {
@@ -59,18 +61,19 @@ namespace ShopWebAPI.Controllers
                 var existing = await _repository.GetByIdAsync(model.Id);
                 if (existing != null)
                 {
-                    return BadRequest("Address Id in Use");
+                    return BadRequest("Id in Use");
                 }
 
                 //save and return
-                if (!await _repository.AddAsync(model))
+                var newAccount = _mapper.Map<Account>(model);
+
+                if (!await _repository.AddAsync(newAccount))
                 {
                     return BadRequest("Bad request, could not create record!");
                 }
                 else
                 {
-
-                    return model; // Created(location, _mapper.Map<AddressModel>(Address));
+                    return _mapper.Map<AccountModel>(newAccount); // Created(location, _mapper.Map<AddressModel>(Address));
                 }
 
             }
@@ -81,7 +84,7 @@ namespace ShopWebAPI.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<ActionResult<Account>> Put(Account updatedModel)
+        public async Task<ActionResult<AccountModel>> Put(AccountModel updatedModel)
         {
             try
             {
@@ -92,7 +95,7 @@ namespace ShopWebAPI.Controllers
 
                 if (await _repository.SaveAsync())
                 {
-                    return _mapper.Map<Account>(currentAccount);
+                    return _mapper.Map<AccountModel>(currentAccount);
                 }
             }
             catch (Exception e)
@@ -111,7 +114,7 @@ namespace ShopWebAPI.Controllers
                 var account = await _repository.GetByIdAsync(Id);
                 if (account == null) return NotFound();
 
-                if (await _repository.Delete(account))
+                if (await _repository.DeleteAsync(account))
                 {
                     return Ok();
                 }
