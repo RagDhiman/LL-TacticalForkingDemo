@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using ShopData;
+using Microsoft.AspNetCore.Routing;
 using ShopDomain.DataAccess;
 using ShopDomain.Model;
 using ShopWebAPI.Model;
@@ -12,12 +12,14 @@ namespace ShopWebAPI.Controllers
     {
         private IRepository<Account> _repository;
         private readonly IMapper _mapper;
+        private readonly LinkGenerator _linkGenerator;
 
 
-        public AccountController(IRepository<Account> repository, IMapper mapper)
+        public AccountController(IRepository<Account> repository, IMapper mapper, LinkGenerator linkGenerator)
         {
             _repository = repository;
             _mapper = mapper;
+            _linkGenerator = linkGenerator;
         }
 
         [HttpGet]
@@ -73,7 +75,11 @@ namespace ShopWebAPI.Controllers
                 }
                 else
                 {
-                    return _mapper.Map<AccountModel>(newAccount); // Created(location, _mapper.Map<AddressModel>(Address));
+                    var location = _linkGenerator.GetPathByAction("Get",
+                             "Account",
+                            new { newAccount.Id });
+
+                    return Created(location, _mapper.Map<AccountModel>(newAccount));
                 }
 
             }
