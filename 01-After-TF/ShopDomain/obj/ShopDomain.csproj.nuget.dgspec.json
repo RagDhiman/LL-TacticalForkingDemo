@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\ShopDomain.csproj": {}
+    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\ShopDomain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\ShopDomain.csproj": {
+    "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\ShopDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\ShopDomain.csproj",
+        "projectUniqueName": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\ShopDomain.csproj",
         "projectName": "ShopDomain",
-        "projectPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\ShopDomain.csproj",
+        "projectPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\ShopDomain.csproj",
         "packagesPath": "C:\\Users\\Rag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\obj\\",
+        "outputPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

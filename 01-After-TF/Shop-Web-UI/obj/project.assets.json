@@ -8647,11 +8647,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\Shop-Web-UI\\Shop-Web-UI.csproj",
+      "projectUniqueName": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\Shop-Web-UI\\Shop-Web-UI.csproj",
       "projectName": "Shop-Web-UI",
-      "projectPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\Shop-Web-UI\\Shop-Web-UI.csproj",
+      "projectPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\Shop-Web-UI\\Shop-Web-UI.csproj",
       "packagesPath": "C:\\Users\\Rag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\Shop-Web-UI\\obj\\",
+      "outputPath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\Shop-Web-UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

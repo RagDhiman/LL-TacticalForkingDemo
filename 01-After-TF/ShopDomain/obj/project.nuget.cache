@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HYmLz7UpwoTbwwS7kLRofFJt3BG2Q3/oP9OSIueJh/6ZwjCqC7anmen6OLf3g61IyCwGYbWhy+AaqQJr/1cvcw==",
+  "dgSpecHash": "AxQqvFAg6dQzbloaI5iXxoDCqNiL6vaSZveNJCZjY1S6JTPfwQvt+5g3h8TPdJnQFxj3vI295kgP8oqi3wWiNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\00-Before-TF\\ShopDomain\\ShopDomain.csproj",
+  "projectFilePath": "C:\\Users\\Rag\\source\\repos\\RagDhiman\\LL-TacticalForkingDemo\\01-After-TF\\ShopDomain\\ShopDomain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
