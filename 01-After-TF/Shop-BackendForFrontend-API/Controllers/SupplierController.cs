@@ -16,7 +16,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         private readonly LinkGenerator _linkGenerator;
         private readonly ILogger<SupplierController> _logger;
 
-        public SupplierController(IHTTPRepository<Supplier> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+        public SupplierController(IHTTPRepository<Supplier> repository, IStockAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
             ILogger<SupplierController> logger)
         {
             _repository = repository;

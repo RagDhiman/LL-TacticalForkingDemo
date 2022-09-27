@@ -16,7 +16,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         private readonly LinkGenerator _linkGenerator;
         private readonly ILogger<DeliveryController> _logger;
 
-        public DeliveryController(IHTTPRepository<Delivery> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+        public DeliveryController(IHTTPRepository<Delivery> repository, IOrdersAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
             ILogger<DeliveryController> logger)
         {
             _repository = repository;

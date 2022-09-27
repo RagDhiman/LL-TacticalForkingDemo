@@ -6,7 +6,7 @@ namespace Shop_BackendForFrontend_API.Data
 {
     public class HTTPRepository<T> : IHTTPRepository<T> where T: IEntity
     {
-        private static readonly HttpClient _httpClient = new HttpClient();
+        private HttpClient _httpClient = new HttpClient();
 
         private string _APIPath { get; set; }
 
@@ -15,10 +15,12 @@ namespace Shop_BackendForFrontend_API.Data
         }
         public void SetBaseAddress(IBaseAddress baseAddress, string APIPath)
         {
-            _APIPath = APIPath;
-            _httpClient.BaseAddress = baseAddress.BaseAddress;
-            _httpClient.Timeout = new TimeSpan(0, 0, 30);
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            if (string.IsNullOrEmpty(_APIPath)){
+                _APIPath = APIPath;
+                _httpClient.BaseAddress = baseAddress.BaseAddress;
+                _httpClient.Timeout = new TimeSpan(0, 0, 30);
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+            }
         }
         public async Task<IEnumerable<T>> GetAllAsync()
         {

@@ -9,10 +9,10 @@ namespace Shop_BackendForFrontend_API.BaseAddresses
     {
     }
 
-    public class OrdersManagerBaseAddress: IOrdersAPIBaseAddress
+    public class OrdersAPIBaseAddress : IOrdersAPIBaseAddress
     {
         public Uri BaseAddress { get; set; }
-        public OrdersManagerBaseAddress(string baseAddress)
+        public OrdersAPIBaseAddress(string baseAddress)
         {
             this.BaseAddress = new Uri(baseAddress);
         }

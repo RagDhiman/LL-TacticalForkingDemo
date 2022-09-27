@@ -12,6 +12,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IAccountsAPIBaseAddress>(a => new AccountsAPIBaseAddress(builder.Configuration.GetValue<string>("AccountsAPIBaseAddress")));
+builder.Services.AddScoped<IStockAPIBaseAddress>(a => new StockAPIBaseAddress(builder.Configuration.GetValue<string>("StockAPIBaseAddress")));
+builder.Services.AddScoped<IOrdersAPIBaseAddress>(a => new OrdersAPIBaseAddress(builder.Configuration.GetValue<string>("OrdersAPIBaseAddress")));
+
 builder.Services.AddScoped(typeof(IHTTPRepository<>), typeof(HTTPRepository<>));
 
 var app = builder.Build();

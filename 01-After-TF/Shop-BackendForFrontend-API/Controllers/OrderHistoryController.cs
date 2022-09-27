@@ -16,7 +16,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         private readonly LinkGenerator _linkGenerator;
         private readonly ILogger<OrderHistoryController> _logger;
 
-        public OrderHistoryController(IHTTPRepository<OrderHistory> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+        public OrderHistoryController(IHTTPRepository<OrderHistory> repository, IOrdersAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
             ILogger<OrderHistoryController> logger)
         {
             _repository = repository;
