@@ -9,18 +9,18 @@ namespace Shop_BackendForFrontend_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressController : Controller
+    public class ProductController : Controller
     {
-        private readonly IHTTPRepository<Address> _repository;
+        private readonly IHTTPRepository<Product> _repository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
-        private readonly ILogger<AddressController> _logger;
+        private readonly ILogger<ProductController> _logger;
 
-        public AddressController(IHTTPRepository<Address> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
-            ILogger<AddressController> logger)
+        public ProductController(IHTTPRepository<Product> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+            ILogger<ProductController> logger)
         {
             _repository = repository;
-            _repository.SetBaseAddress(baseAddress, "api/Address");
+            _repository.SetBaseAddress(baseAddress, "api/Product");
 
             _mapper = mapper;
             _linkGenerator = linkGenerator;
@@ -28,13 +28,13 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<AddressModel[]>> Get()
+        public async Task<ActionResult<ProductModel[]>> Get()
         {
             try
             {
                 var results = await _repository.GetAllAsync();
 
-                return _mapper.Map<AddressModel[]>(results);
+                return _mapper.Map<ProductModel[]>(results);
             }
             catch (Exception e)
             {
@@ -44,7 +44,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<ActionResult<AddressModel>> Get(int Id)
+        public async Task<ActionResult<ProductModel>> Get(int Id)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Shop_BackendForFrontend_API.Controllers
 
                 if (result == null) return NotFound();
 
-                return _mapper.Map<AddressModel>(result);
+                return _mapper.Map<ProductModel>(result);
 
             }
             catch (Exception e)
@@ -63,32 +63,32 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AddressModel>> Post(AddressModel model)
+        public async Task<ActionResult<ProductModel>> Post(ProductModel model)
         {
             try
             {
-                //Make sure AddressId is not already taken
+                //Make sure ProductId is not already taken
                 var existing = await _repository.GetByIdAsync(model.Id);
                 if (existing != null)
                 {
-                    return BadRequest("Address Id in Use");
+                    return BadRequest("Product Id in Use");
                 }
 
                 //map
-                var Address = _mapper.Map<Address>(model);
+                var Product = _mapper.Map<Product>(model);
 
                 //save and return
-                if (!await _repository.AddAsync(Address))
+                if (!await _repository.AddAsync(Product))
                 {
                     return BadRequest("Bad request, could not create record!");
                 }
                 else
                 {
                     var location = _linkGenerator.GetPathByAction("Get",
-                             "Address",
-                            new { Id = Address.Id });
+                             "Product",
+                            new { Id = Product.Id });
 
-                    return Created(location, _mapper.Map<AddressModel>(Address));
+                    return Created(location, _mapper.Map<ProductModel>(Product));
                 }
 
             }
@@ -100,18 +100,18 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<ActionResult<AddressModel>> Put(int Id, AddressModel updatedModel)
+        public async Task<ActionResult<ProductModel>> Put(int Id, ProductModel updatedModel)
         {
             try
             {
-                var currentAddress = await _repository.GetByIdAsync(Id);
-                if (currentAddress == null) return NotFound($"Could not find Address with Id of {Id}");
+                var currentProduct = await _repository.GetByIdAsync(Id);
+                if (currentProduct == null) return NotFound($"Could not find Product with Id of {Id}");
 
-                _mapper.Map(updatedModel, currentAddress);
+                _mapper.Map(updatedModel, currentProduct);
 
-                if (await _repository.UpdateAsync(currentAddress))
+                if (await _repository.UpdateAsync(currentProduct))
                 {
-                    return _mapper.Map<AddressModel>(currentAddress);
+                    return _mapper.Map<ProductModel>(currentProduct);
                 }
             }
             catch (Exception e)
@@ -128,10 +128,10 @@ namespace Shop_BackendForFrontend_API.Controllers
         {
             try
             {
-                var Address = await _repository.GetByIdAsync(Id);
-                if (Address == null) return NotFound();
+                var Product = await _repository.GetByIdAsync(Id);
+                if (Product == null) return NotFound();
 
-                if (await _repository.DeleteAsync(Address))
+                if (await _repository.DeleteAsync(Product))
                 {
                     return Ok();
                 }
@@ -143,7 +143,7 @@ namespace Shop_BackendForFrontend_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Failed Request");
             }
 
-            return BadRequest("Failed to delete the Address");
+            return BadRequest("Failed to delete the Product");
         }
 
     }

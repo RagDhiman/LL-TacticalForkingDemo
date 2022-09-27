@@ -9,18 +9,18 @@ namespace Shop_BackendForFrontend_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressController : Controller
+    public class StockController : Controller
     {
-        private readonly IHTTPRepository<Address> _repository;
+        private readonly IHTTPRepository<Stock> _repository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
-        private readonly ILogger<AddressController> _logger;
+        private readonly ILogger<StockController> _logger;
 
-        public AddressController(IHTTPRepository<Address> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
-            ILogger<AddressController> logger)
+        public StockController(IHTTPRepository<Stock> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+            ILogger<StockController> logger)
         {
             _repository = repository;
-            _repository.SetBaseAddress(baseAddress, "api/Address");
+            _repository.SetBaseAddress(baseAddress, "api/Stock");
 
             _mapper = mapper;
             _linkGenerator = linkGenerator;
@@ -28,13 +28,13 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<AddressModel[]>> Get()
+        public async Task<ActionResult<StockModel[]>> Get()
         {
             try
             {
                 var results = await _repository.GetAllAsync();
 
-                return _mapper.Map<AddressModel[]>(results);
+                return _mapper.Map<StockModel[]>(results);
             }
             catch (Exception e)
             {
@@ -44,7 +44,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<ActionResult<AddressModel>> Get(int Id)
+        public async Task<ActionResult<StockModel>> Get(int Id)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Shop_BackendForFrontend_API.Controllers
 
                 if (result == null) return NotFound();
 
-                return _mapper.Map<AddressModel>(result);
+                return _mapper.Map<StockModel>(result);
 
             }
             catch (Exception e)
@@ -63,32 +63,32 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AddressModel>> Post(AddressModel model)
+        public async Task<ActionResult<StockModel>> Post(StockModel model)
         {
             try
             {
-                //Make sure AddressId is not already taken
+                //Make sure StockId is not already taken
                 var existing = await _repository.GetByIdAsync(model.Id);
                 if (existing != null)
                 {
-                    return BadRequest("Address Id in Use");
+                    return BadRequest("Stock Id in Use");
                 }
 
                 //map
-                var Address = _mapper.Map<Address>(model);
+                var Stock = _mapper.Map<Stock>(model);
 
                 //save and return
-                if (!await _repository.AddAsync(Address))
+                if (!await _repository.AddAsync(Stock))
                 {
                     return BadRequest("Bad request, could not create record!");
                 }
                 else
                 {
                     var location = _linkGenerator.GetPathByAction("Get",
-                             "Address",
-                            new { Id = Address.Id });
+                             "Stock",
+                            new { Id = Stock.Id });
 
-                    return Created(location, _mapper.Map<AddressModel>(Address));
+                    return Created(location, _mapper.Map<StockModel>(Stock));
                 }
 
             }
@@ -100,18 +100,18 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<ActionResult<AddressModel>> Put(int Id, AddressModel updatedModel)
+        public async Task<ActionResult<StockModel>> Put(int Id, StockModel updatedModel)
         {
             try
             {
-                var currentAddress = await _repository.GetByIdAsync(Id);
-                if (currentAddress == null) return NotFound($"Could not find Address with Id of {Id}");
+                var currentStock = await _repository.GetByIdAsync(Id);
+                if (currentStock == null) return NotFound($"Could not find Stock with Id of {Id}");
 
-                _mapper.Map(updatedModel, currentAddress);
+                _mapper.Map(updatedModel, currentStock);
 
-                if (await _repository.UpdateAsync(currentAddress))
+                if (await _repository.UpdateAsync(currentStock))
                 {
-                    return _mapper.Map<AddressModel>(currentAddress);
+                    return _mapper.Map<StockModel>(currentStock);
                 }
             }
             catch (Exception e)
@@ -128,10 +128,10 @@ namespace Shop_BackendForFrontend_API.Controllers
         {
             try
             {
-                var Address = await _repository.GetByIdAsync(Id);
-                if (Address == null) return NotFound();
+                var Stock = await _repository.GetByIdAsync(Id);
+                if (Stock == null) return NotFound();
 
-                if (await _repository.DeleteAsync(Address))
+                if (await _repository.DeleteAsync(Stock))
                 {
                     return Ok();
                 }
@@ -143,7 +143,7 @@ namespace Shop_BackendForFrontend_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Failed Request");
             }
 
-            return BadRequest("Failed to delete the Address");
+            return BadRequest("Failed to delete the Stock");
         }
 
     }

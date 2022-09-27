@@ -9,18 +9,18 @@ namespace Shop_BackendForFrontend_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressController : Controller
+    public class AccountController : Controller
     {
-        private readonly IHTTPRepository<Address> _repository;
+        private readonly IHTTPRepository<Account> _repository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
-        private readonly ILogger<AddressController> _logger;
+        private readonly ILogger<AccountController> _logger;
 
-        public AddressController(IHTTPRepository<Address> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
-            ILogger<AddressController> logger)
+        public AccountController(IHTTPRepository<Account> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
+            ILogger<AccountController> logger)
         {
             _repository = repository;
-            _repository.SetBaseAddress(baseAddress, "api/Address");
+            _repository.SetBaseAddress(baseAddress, "api/Account");
 
             _mapper = mapper;
             _linkGenerator = linkGenerator;
@@ -28,13 +28,13 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<AddressModel[]>> Get()
+        public async Task<ActionResult<AccountModel[]>> Get()
         {
             try
             {
                 var results = await _repository.GetAllAsync();
 
-                return _mapper.Map<AddressModel[]>(results);
+                return _mapper.Map<AccountModel[]>(results);
             }
             catch (Exception e)
             {
@@ -44,7 +44,7 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<ActionResult<AddressModel>> Get(int Id)
+        public async Task<ActionResult<AccountModel>> Get(int Id)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Shop_BackendForFrontend_API.Controllers
 
                 if (result == null) return NotFound();
 
-                return _mapper.Map<AddressModel>(result);
+                return _mapper.Map<AccountModel>(result);
 
             }
             catch (Exception e)
@@ -63,32 +63,32 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AddressModel>> Post(AddressModel model)
+        public async Task<ActionResult<AccountModel>> Post(AccountModel model)
         {
             try
             {
-                //Make sure AddressId is not already taken
+                //Make sure AccountId is not already taken
                 var existing = await _repository.GetByIdAsync(model.Id);
                 if (existing != null)
                 {
-                    return BadRequest("Address Id in Use");
+                    return BadRequest("Account Id in Use");
                 }
 
                 //map
-                var Address = _mapper.Map<Address>(model);
+                var Account = _mapper.Map<Account>(model);
 
                 //save and return
-                if (!await _repository.AddAsync(Address))
+                if (!await _repository.AddAsync(Account))
                 {
                     return BadRequest("Bad request, could not create record!");
                 }
                 else
                 {
                     var location = _linkGenerator.GetPathByAction("Get",
-                             "Address",
-                            new { Id = Address.Id });
+                             "Account",
+                            new { Id = Account.Id });
 
-                    return Created(location, _mapper.Map<AddressModel>(Address));
+                    return Created(location, _mapper.Map<AccountModel>(Account));
                 }
 
             }
@@ -100,18 +100,18 @@ namespace Shop_BackendForFrontend_API.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<ActionResult<AddressModel>> Put(int Id, AddressModel updatedModel)
+        public async Task<ActionResult<AccountModel>> Put(int Id, AccountModel updatedModel)
         {
             try
             {
-                var currentAddress = await _repository.GetByIdAsync(Id);
-                if (currentAddress == null) return NotFound($"Could not find Address with Id of {Id}");
+                var currentAccount = await _repository.GetByIdAsync(Id);
+                if (currentAccount == null) return NotFound($"Could not find Account with Id of {Id}");
 
-                _mapper.Map(updatedModel, currentAddress);
+                _mapper.Map(updatedModel, currentAccount);
 
-                if (await _repository.UpdateAsync(currentAddress))
+                if (await _repository.UpdateAsync(currentAccount))
                 {
-                    return _mapper.Map<AddressModel>(currentAddress);
+                    return _mapper.Map<AccountModel>(currentAccount);
                 }
             }
             catch (Exception e)
@@ -128,10 +128,10 @@ namespace Shop_BackendForFrontend_API.Controllers
         {
             try
             {
-                var Address = await _repository.GetByIdAsync(Id);
-                if (Address == null) return NotFound();
+                var Account = await _repository.GetByIdAsync(Id);
+                if (Account == null) return NotFound();
 
-                if (await _repository.DeleteAsync(Address))
+                if (await _repository.DeleteAsync(Account))
                 {
                     return Ok();
                 }
@@ -143,7 +143,7 @@ namespace Shop_BackendForFrontend_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Failed Request");
             }
 
-            return BadRequest("Failed to delete the Address");
+            return BadRequest("Failed to delete the Account");
         }
 
     }
