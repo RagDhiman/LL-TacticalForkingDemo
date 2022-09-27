@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shop_BackendForFrontend_API.Data
+namespace Shop_BackendForFrontend_API.BaseAddresses
 {
     public class BaseAddressConfig : IBaseAddress
     {
-        public Uri BaseAddress { get; set;  }
+        public Uri BaseAddress { get; set; }
     }
 }

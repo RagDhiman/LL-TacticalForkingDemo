@@ -26,3 +26,6 @@ C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-Back
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\obj\Debug\net6.0\Shop-BackendForFrontend-API.pdb
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\obj\Debug\net6.0\Shop-BackendForFrontend-API.genruntimeconfig.cache
 C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\obj\Debug\net6.0\ref\Shop-BackendForFrontend-API.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Rag\source\repos\RagDhiman\LL-TacticalForkingDemo\01-After-TF\Shop-BackendForFrontend-API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll

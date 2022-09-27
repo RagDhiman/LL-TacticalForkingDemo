@@ -1,3 +1,6 @@
+using Shop_BackendForFrontend_API.BaseAddresses;
+using Shop_BackendForFrontend_API.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddScoped<IAccountsAPIBaseAddress>(a => new AccountsAPIBaseAddress(builder.Configuration.GetValue<string>("AccountsAPIBaseAddress")));
+builder.Services.AddScoped(typeof(IHTTPRepository<>), typeof(HTTPRepository<>));
 
 var app = builder.Build();
 

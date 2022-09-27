@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
-using Shop_BackendForFrontend_API.Model;
+using Shop_BackendForFrontend_API.BaseAddresses;
 using Shop_BackendForFrontend_API.Data;
 using Shop_BackendForFrontend_API.Domain;
+using Shop_BackendForFrontend_API.Model;
 
 namespace Shop_BackendForFrontend_API.Controllers
 {
@@ -11,16 +11,16 @@ namespace Shop_BackendForFrontend_API.Controllers
     [ApiController]
     public class AccountController : Controller
     {
-        private readonly IGenericRepository<Account> _repository;
+        private readonly IHTTPRepository<Account> _repository;
         private readonly IMapper _mapper;
         private readonly LinkGenerator _linkGenerator;
         private readonly ILogger<AccountController> _logger;
 
-        public AccountController(IGenericRepository<Account> repository, IMapper mapper, LinkGenerator linkGenerator,
+        public AccountController(IHTTPRepository<Account> repository, IAccountsAPIBaseAddress baseAddress, IMapper mapper, LinkGenerator linkGenerator,
             ILogger<AccountController> logger)
         {
             _repository = repository;
-            _repository.ResourcePath = "api/account";
+            _repository.SetBaseAddress(baseAddress, "api/Account");
 
             _mapper = mapper;
             _linkGenerator = linkGenerator;
@@ -78,7 +78,7 @@ namespace Shop_BackendForFrontend_API.Controllers
                 var Account = _mapper.Map<Account>(model);
 
                 //save and return
-                if (!await _repository.StoreNewAsync(Account))
+                if (!await _repository.AddAsync(Account))
                 {
                     return BadRequest("Bad request, could not create record!");
                 }
