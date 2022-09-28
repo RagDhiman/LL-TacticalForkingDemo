@@ -21,7 +21,7 @@ namespace ShopData
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = ShopDatabase"
+                "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = OrdersDatabase"
             );
         }
 
