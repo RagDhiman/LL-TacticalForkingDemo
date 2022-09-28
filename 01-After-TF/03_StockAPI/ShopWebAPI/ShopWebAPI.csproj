@@ -7,6 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\AccountController.old" />
+    <None Remove="Controllers\AddressController.old" />
+    <None Remove="Controllers\BillingAddressController.old" />
+    <None Remove="Controllers\CreditCardController.old" />
+    <None Remove="Controllers\DeliveryController.old" />
+    <None Remove="Controllers\OrderController.old" />
+    <None Remove="Controllers\OrderHistoryController.old" />
+    <None Remove="Controllers\ReturnController.old" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.old" />
+    <Compile Include="Controllers\AddressController.old" />
+    <Compile Include="Controllers\BillingAddressController.old" />
+    <Compile Include="Controllers\CreditCardController.old" />
+    <Compile Include="Controllers\DeliveryController.old" />
+    <Compile Include="Controllers\OrderController.old" />
+    <Compile Include="Controllers\OrderHistoryController.old" />
+    <Compile Include="Controllers\ReturnController.old" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
 		  <PrivateAssets>all</PrivateAssets>
